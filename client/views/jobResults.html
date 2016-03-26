@@ -1,0 +1,16 @@
+<div>Search Results</div>
+
+<div ng-repeat="job in jobs">
+	<h2>{{job.jobtitle[0]}}</h2>
+	<a ng-mousedown="result.onmousedown[0]" href={{job.url[0]}}>
+    <p>{{job.jobtitle[0]}}</p>
+  </a>
+</div>
+
+<div ng-bind-html="indeedAttribution"></div>
+
+<!-- <div>{{indeedAttribution}}</div> -->
+
+
+<!-- example for injecting HTML using ngSanitize
+<div ng-bind-html="thisCanBeusedInsideNgBindHtml"></div> -->

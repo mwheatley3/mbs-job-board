@@ -1,0 +1,20 @@
+<h1>Admin Page</h1>
+<form name="signinForm" ng-submit="login()">
+  <input type="text" ng-model="user.username">
+  <input type="password" ng-model="user.password">
+  <br>
+  <button ng-if="!!user.password && !!user.username">Login</button>
+  <p ng-if="!user.password || !user.username">Please Enter Your Credentails</p>
+</form>
+
+<div>{{authorized}}</div>
+
+<div ng-if="authorized">
+	<form name="log" ng-submit="getReport()">
+		<button>Show Report</button>
+	</form>
+	<h3>REPORT</h3>
+	<div ng-repeat="record in report">
+		<p>{{record.search_term}}</p>
+	</div>
+</div>

@@ -1,28 +1,17 @@
 var express = require('express');
-var Path = require('path');
-var routes = express.Router();
-
-var assetFolder = Path.resolve(__dirname, '../client/');
-routes.use(express.static(assetFolder));
-
-//
-// The Catch-all Route
-// This is for supporting browser history pushstate.
-// NOTE: Make sure this route is always LAST.
-//
-routes.get('/*', function(req, res){
-  res.sendFile( assetFolder + '/index.html' )
-})
-
+var mongo = require('./db.js');
 var app = express();
+var port = process.env.PORT || 4000;
 
-// Parse incoming request bodies as JSON
-app.use( require('body-parser').json() );
-
-// Mount our main router
-app.use('/', routes);
+// configure our server with all the middleware and routing
+require('./middleware.js')(app, express);
 
 // Start the server!
-var port = process.env.PORT || 4000;
 app.listen(port);
 console.log("Listening on port", port);
+
+
+/* Sample Request
+ Sample format of an xml request:
+ http://api.indeed.com/ads/apisearch?publisher=3174301997799144&q=java&l=austin%2C+tx&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2
+ */
