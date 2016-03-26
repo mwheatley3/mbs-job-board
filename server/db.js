@@ -27,8 +27,15 @@ var ReportSchema = new mongoose.Schema({
   ip_address: String
 });
 
+var HTMLSchema = new mongoose.Schema({
+  HTML: String,
+  created_at: Date
+});
+
 module.exports.db = db;
 
 module.exports.user = mongoose.model('users', UserSchema);
 
 module.exports.report = mongoose.model('reports', ReportSchema);
+
+module.exports.HTML = mongoose.model('htmls', HTMLSchema);

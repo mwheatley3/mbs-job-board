@@ -19,7 +19,7 @@ module.exports = function(app, express){
 
    // inject our routers into their respective route files
   require('./search/searchRouter.js')(searchRouter);
-  require('./adminLogin/adminLoginRouter.js')(adminRouter);
+  require('./admin/adminRouter.js')(adminRouter);
   require('./report/reportRouter.js')(reportRouter);
 
 }

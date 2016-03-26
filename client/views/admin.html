@@ -1,7 +1,7 @@
 <h1>Admin Page</h1>
-<form name="signinForm" ng-submit="login()">
-  <input type="text" ng-model="user.username">
-  <input type="password" ng-model="user.password">
+<form name="loginForm" ng-submit="login()">
+  <input type="text" ng-model="user.username" required>
+  <input type="password" ng-model="user.password" required>
   <br>
   <button ng-if="!!user.password && !!user.username">Login</button>
   <p ng-if="!user.password || !user.username">Please Enter Your Credentails</p>
@@ -11,15 +11,21 @@
 
 <div>{{authorized}}</div>
 
-<div ng-if="authorized">
-	<form name="log" ng-submit="getReport()">
-		<button>Show Report</button>
-	</form>
+<div ng-show="authorized">
+	<button ng-click="getReport()">Show Report</button>
 	<h3>REPORT</h3>
 	<div ng-repeat="record in report">
 		<div><strong>Search Term</strong>{{record.search_term}}</div>
 		<div><strong>Zip Code</strong>{{record.zip_code}}</div>
 		<div><strong>Time of Search</strong>{{record.date_time}}</div>
 		<div><strong>IP address</strong>{{record.ip_address}}</div>
+	</div>
+	<div class="tracking">
+		<h3>TRACKING HTML</h3>
+		<form name="trackingForm" ng-submit="submitHTML()">
+			<textarea rows=10 cols=100 ng-model="trackingHTML" size=250 placeholder="Enter Tracking HTML Here"></textarea>
+			<div>trackingHTML: {{trackingHTML}}</div>
+			<button>Submit Tracking HTML</button>
+		</form>
 	</div>
 </div>

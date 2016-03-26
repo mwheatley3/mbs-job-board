@@ -5,6 +5,8 @@ angular.module('myApp')
   	$scope.authorized = false;
   	$scope.errorMessage = '';
   	$scope.report = [];
+  	$scope.trackingUpdated = false;
+  	$scope.trackingHTML = '';
   	$scope.user = {
   		username: '',
   		password: ''
@@ -29,9 +31,24 @@ angular.module('myApp')
   		.then(function(resp){
   			console.log('report', resp);
   			$scope.report = resp;
+  			//TODO format time
   		})
   		.catch(function(error){
   			console.error('error trying to get report: ', report);
+  		})
+  	};
+  	$scope.test = function(test){
+  		console.log('test', test);
+  	};
+  	$scope.submitHTML = function(){
+  		console.log('$scope.trackingHTML', $scope.trackingHTML);
+  		Services.submitHTML($scope.trackingHTML)
+  		.then(function(resp){
+  			$scope.trackingUpdated = true;
+  		})
+  		.catch(function(error){
+  			$scope.trackingUpdated = false;
+  			console.log('error', error);
   		})
   	};
 

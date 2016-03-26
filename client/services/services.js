@@ -45,6 +45,33 @@ angular.module('myApp.Services',[])
       console.error('Error getting report: ', error);
     })
   };
+
+  service.submitHTML = function(trackingHTML){
+    return $http({
+      method: 'POST',
+      url: '/api/admin/tracking',
+      data: {"trackingHTML": trackingHTML}
+    })
+    .then(function(res){
+      return res.data;
+    })
+    .catch(function(error){
+      console.error('Error posting tracking HTML: ', error);
+    })
+  };
+
+  service.getTracking = function(){
+    return $http({
+      method: 'GET',
+      url: '/api/admin/tracking'
+    })
+    .then(function(res){
+      return res.data;
+    })
+    .catch(function(error){
+      console.error('Error posting tracking HTML: ', error);
+    });
+  }
 	
 	return service;
 
