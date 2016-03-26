@@ -7,6 +7,8 @@
   <p ng-if="!user.password || !user.username">Please Enter Your Credentails</p>
 </form>
 
+<div>sign in error: {{errorMessage}}</div>
+
 <div>{{authorized}}</div>
 
 <div ng-if="authorized">
@@ -15,6 +17,9 @@
 	</form>
 	<h3>REPORT</h3>
 	<div ng-repeat="record in report">
-		<p>{{record.search_term}}</p>
+		<div><strong>Search Term</strong>{{record.search_term}}</div>
+		<div><strong>Zip Code</strong>{{record.zip_code}}</div>
+		<div><strong>Time of Search</strong>{{record.date_time}}</div>
+		<div><strong>IP address</strong>{{record.ip_address}}</div>
 	</div>
 </div>

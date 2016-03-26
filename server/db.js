@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 //update to use mLabs database
-// var connectString = 'mongodb://<dbuser>:<dbpassword>@ds021969.mlab.com:21969/job_board'
-mongoose.connect('mongodb://localhost/test');
+var connectString = 'mongodb://mbs:mbs@ds021969.mlab.com:21969/job_board'
+mongoose.connect(connectString);
 var db = mongoose.connection;
 
 db.once('open', function(){

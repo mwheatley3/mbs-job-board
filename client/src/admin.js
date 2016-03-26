@@ -17,6 +17,7 @@ angular.module('myApp')
   			}
   			else{
   				$scope.authorized = true;
+  				$scope.errorMessage = '';
   			}
   		})
   		.catch(function(error){

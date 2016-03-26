@@ -22,7 +22,7 @@ angular.module('myApp.Services',[])
   service.login = function(user){
     return $http({
       method: 'POST',
-      url: 'api/admin/login',
+      url: '/api/admin/login',
       data: user
     })
     .then(function(res){
@@ -36,7 +36,7 @@ angular.module('myApp.Services',[])
   service.getReport = function(){
     return $http({
       method: 'GET',
-      url: 'api/report/all',
+      url: '/api/report/all',
     })
     .then(function(res){
       return res.data;
