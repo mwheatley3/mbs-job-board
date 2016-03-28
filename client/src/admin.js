@@ -3,9 +3,10 @@
 angular.module('myApp')
   .controller('Admin', ['$scope','$http','Services', function($scope,$http,Services) {
   	$scope.authorized = false;
+    $scope.searchedForReport = false;
+    $scope.trackingUpdated = false;
   	$scope.errorMessage = '';
   	$scope.report = [];
-  	$scope.trackingUpdated = false;
   	$scope.trackingHTML = '';
   	$scope.user = {
   		username: '',
@@ -29,7 +30,7 @@ angular.module('myApp')
   	$scope.getReport = function(){
   		Services.getReport()
   		.then(function(resp){
-  			console.log('report', resp);
+  			$scope.searchedForReport = true;
   			$scope.report = resp;
   			//TODO format time
   		})
@@ -42,6 +43,7 @@ angular.module('myApp')
   		Services.submitHTML($scope.trackingHTML)
   		.then(function(resp){
   			$scope.trackingUpdated = true;
+        $scope.trackingHTML = '';
   		})
   		.catch(function(error){
   			$scope.trackingUpdated = false;

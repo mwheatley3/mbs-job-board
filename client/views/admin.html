@@ -12,21 +12,23 @@
 <p ng-show="errorMessage">sign in error: {{errorMessage}}</p>
 
 <div ng-show="authorized">
-	<button ng-click="getReport()">Show Report</button>
-	<h3>Report of previous searches</h3>
+	<button class="btn" ng-click="getReport()">Show Report</button>
+	<h3 ng-show="searchedForReport">Report of previous searches</h3>
 	<div class="resultsContainer" ng-repeat="record in report">
-		<p>Search Term: {{record.search_term}}</p>
-		<p>Zip Code: {{record.zip_code}}</p>
-		<p>Time of Search: {{record.date_time}}</p>
-		<p>IP address: {{record.ip_address}}</p>
+		<p>Search Term:    {{record.search_term}}</p>
+		<p>Zip Code:       {{record.zip_code}}</p>
+		<p>Time of Search: {{record.date_time | date : 'medium'}}</p>
+		<p>IP address:     {{record.ip_address}}</p>
 	</div>
-	<p ng-show="report.length === 0">There is no job search history</p>
+	<p ng-show="!report.length && searchedForReport">There is no job search history</p>
+
 	<div class="tracking">
 		<h3>TRACKING HTML</h3>
+		<p ng-show="trackingUpdated">Tracking HTML submitted!!</p>
 		<form name="trackingForm" ng-submit="submitHTML()">
-			<textarea rows=10 cols=100 ng-model="trackingHTML" size=250 placeholder="Enter Tracking HTML Here"></textarea>
-			<div>trackingHTML: {{trackingHTML}}</div>
-			<button>Submit Tracking HTML</button>
+			<textarea rows="10" cols="100" ng-model="trackingHTML" size="250" placeholder="Enter Tracking HTML Here" required></textarea>
+			<br>
+			<button class="btn">Submit Tracking HTML</button>
 		</form>
 	</div>
 </div>

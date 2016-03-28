@@ -19,6 +19,9 @@ module.exports = {
 				}
 			}
 		})
+		.catch(function(err){
+			res.sendStatus(401);//look up correct error code
+		})
 	},
 	postTracking: function(req, res, next){
 		var trackingHTML = req.body.trackingHTML;
@@ -31,7 +34,7 @@ module.exports = {
 		.then(function(data){
 			res.sendStatus(200);
 		})
-		.catch(function(data){
+		.catch(function(err){
 			res.sendStatus(401);//look up correct error code
 		})
 	},
