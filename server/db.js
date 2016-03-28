@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 //update to use mLabs database
-var connectString = 'mongodb://mbs:mbs@ds021969.mlab.com:21969/job_board'
+var connectString = process.env.MONGO;
 mongoose.connect(connectString);
 var db = mongoose.connection;
 
