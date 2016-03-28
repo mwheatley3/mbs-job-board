@@ -24,15 +24,11 @@
     "supertest": "^1.1.0",
     "supertest-as-promised": "^2.0.2"
   },
-  "author": "Dan <dan.corman@gmail.com>",
+  "author": "Michael Wheatley <michaelvwheatley@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "./node_modules/.bin/nodemon server/index.js --ignore client/ --ignore node_modules/",
     "test": "./test/run.sh",
     "postinstall": "bower install"
-  },
-  "bugs": {
-    "url": "https://github.com/dyale/node-catapult-angular/issues"
-  },
-  "homepage": "https://github.com/dyale/node-catapult-angular/"
+  }
 }

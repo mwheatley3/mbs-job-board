@@ -7,8 +7,8 @@ module.exports = {
 	searchForJobs: function(req, res, next){
 		var agent = req.useragent.browser + "%2" + req.useragent.version;
 	  var ip = req.ip; //need to parse IP address
-	  var job = req.body.job || 'plumber';//replace spaces with '+'
-	  var zip = req.body.zip || 78702;
+	  var job = req.body.job;//replace spaces with '+'
+	  var zip = req.body.zip;
 
 	  Report({
 	  	zip_code: zip, 
@@ -33,7 +33,6 @@ module.exports = {
 	      console.log(error);
 	    }
 	    parseString(body, function(err, results){
-	    	// console.log('parsedXML', util.inspect(results.response.results[0].result));
 	    	res.send({jobs: results.response.results[0].result});
 	    })
 	  })

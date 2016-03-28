@@ -4,11 +4,11 @@ angular.module('myApp.Services',[])
 	var service = {};
   service.jobSearchResults = '';
 
-	service.searchForJob = function(job, zip){
+	service.searchForJob = function(searchData){
 		return $http({
       method: 'POST',
       url: '/api/indeed/search',
-      data: {"job": job, "zip": zip}
+      data: searchData
     })
     .then(function(res){
       service.jobSearchResults = res;

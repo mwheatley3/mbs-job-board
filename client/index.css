@@ -24,3 +24,12 @@ h1{
 	text-align: center;
 	border-radius: 2px;
 }
+
+.resultsContainer {
+  width: 750px;
+  height: auto;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  border-radius: 2px;
+  font-size: 18px;
+}

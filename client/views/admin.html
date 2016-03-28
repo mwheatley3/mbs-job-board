@@ -1,25 +1,26 @@
 <h1>Admin Page</h1>
 <form name="loginForm" ng-submit="login()">
-  <input type="text" ng-model="user.username" required>
-  <input type="password" ng-model="user.password" required>
-  <br>
-  <button ng-if="!!user.password && !!user.username">Login</button>
-  <p ng-if="!user.password || !user.username">Please Enter Your Credentails</p>
+	<fieldset>
+	  <input type="text" ng-model="user.username" required>
+	  <input type="password" ng-model="user.password" required>
+	  <br>
+	  <button ng-if="!!user.password && !!user.username">Login</button>
+	  <p ng-if="!user.password || !user.username">Please Enter Your Credentails</p>
+	</fieldset>
 </form>
 
-<div>sign in error: {{errorMessage}}</div>
-
-<div>{{authorized}}</div>
+<p ng-show="errorMessage">sign in error: {{errorMessage}}</p>
 
 <div ng-show="authorized">
 	<button ng-click="getReport()">Show Report</button>
-	<h3>REPORT</h3>
-	<div ng-repeat="record in report">
-		<div><strong>Search Term</strong>{{record.search_term}}</div>
-		<div><strong>Zip Code</strong>{{record.zip_code}}</div>
-		<div><strong>Time of Search</strong>{{record.date_time}}</div>
-		<div><strong>IP address</strong>{{record.ip_address}}</div>
+	<h3>Report of previous searches</h3>
+	<div class="resultsContainer" ng-repeat="record in report">
+		<p>Search Term: {{record.search_term}}</p>
+		<p>Zip Code: {{record.zip_code}}</p>
+		<p>Time of Search: {{record.date_time}}</p>
+		<p>IP address: {{record.ip_address}}</p>
 	</div>
+	<p ng-show="report.length === 0">There is no job search history</p>
 	<div class="tracking">
 		<h3>TRACKING HTML</h3>
 		<form name="trackingForm" ng-submit="submitHTML()">

@@ -38,7 +38,6 @@ module.exports = {
 	getTracking: function(req, res, next){
 		HTML.findOne().sort('-created_at')
 		.then(function(data){
-			console.log('data', data);
 			res.send(data);
 		})
 	}

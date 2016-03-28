@@ -37,9 +37,6 @@ angular.module('myApp')
   			console.error('error trying to get report: ', report);
   		})
   	};
-  	$scope.test = function(test){
-  		console.log('test', test);
-  	};
   	$scope.submitHTML = function(){
   		console.log('$scope.trackingHTML', $scope.trackingHTML);
   		Services.submitHTML($scope.trackingHTML)

@@ -2,6 +2,7 @@
 
 angular.module('myApp')
   .controller('MainCtrl', ['$scope', function($scope) {
-  	$scope.welcome = 'Welcome to your App!';
-  	$scope.buttonText = 'This is your Button';
+  	$scope.welcome = 'The Modern Job Search';
+  	$scope.jobSearchText = 'Job Board';
+  	$scope.adminText = 'Admin Login';
   }]);

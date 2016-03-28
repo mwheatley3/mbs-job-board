@@ -1,11 +1,16 @@
-<div>Search Results</div>
+<h1>Job Search Results</h1>
 
-<div ng-repeat="job in jobs">
+<div class="resultsContainer" ng-repeat="job in jobs">
 	<h2>{{job.jobtitle[0]}}</h2>
 	<a ng-mousedown="result.onmousedown[0]" href={{job.url[0]}}>
-    <p>{{job.jobtitle[0]}}</p>
+    <p>Indeed Link: {{job.jobtitle[0]}}</p>
   </a>
+  <p>Company: {{job.company[0]}}</p>
+  <p>Location: {{job.formattedLocationFull[0]}}</p>
+  <p>Description: {{job.snippet[0]}}</p>
+  <p>Posted: {{job.formattedRelativeTime[0]}}</p> 
 </div>
+<p ng-show="jobs.length === 0">No jobs postings are available for that job title and zip code combination</p>
 
 <div ng-bind-html="indeedAttribution"></div>
 
