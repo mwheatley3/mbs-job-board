@@ -1,7 +1,6 @@
 var bodyParser = require('body-parser');
 var useragent = require('express-useragent');
 var Path = require('path');
-var request = require('request');
 
 module.exports = function(app, express){
 
