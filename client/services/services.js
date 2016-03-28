@@ -2,6 +2,7 @@ angular.module('myApp.Services',[])
 
 .factory('Services', function($http, $window, $location){
 	var service = {};
+  //store job search results in the service so multiple controllers can retrieve it.
   service.jobSearchResults = '';
 
 	service.searchForJob = function(searchData){

@@ -5,14 +5,16 @@ var request = require('request');
 
 module.exports = {
 	searchForJobs: function(req, res, next){
-		var agent = req.useragent.browser + "%2" + req.useragent.version;//not 100% sure what pieces of the useragent are needed for the Indeed API
+		//not 100% sure what pieces of the useragent are needed for the Indeed API
+		var agent = req.useragent.browser + "%2" + req.useragent.version;
 	  var ip = req.ip;
 	  //convert IPv6 to IPv4
 	  if(ip.substr(0,7) === '::ffff:'){
 	  	ip = ip.substr(7);
 	  }
 	  var job = req.body.job;
-	  job = job.split(' ').join('+');//By default terms are ANDed
+	  //By default query terms are ANDed
+	  job = job.split(' ').join('+');
 	  var zip = req.body.zip;
 	  //save the search terms into the report
 	  Report({
