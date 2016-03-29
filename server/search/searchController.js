@@ -13,8 +13,6 @@ module.exports = {
 	  	ip = ip.substr(7);
 	  }
 	  var job = req.body.job;
-	  //By default query terms are ANDed
-	  job = job.split(' ').join('+');
 	  var zip = req.body.zip;
 	  //save the search terms into the report
 	  Report({
@@ -23,6 +21,9 @@ module.exports = {
 	  	date_time: new Date(), 
 	  	ip_address: ip
 	  }).save();
+	  
+	  //By default query terms are ANDed for API call
+	  job = job.split(' ').join('+');
 	  //build up query string for Indeed API call
 	  var queryString = "http://api.indeed.com/ads/apisearch?";
 	  var publisherString = "publisher=" + process.env.PUBLISHER;
