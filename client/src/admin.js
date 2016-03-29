@@ -32,7 +32,6 @@ angular.module('myApp')
   		.then(function(resp){
   			$scope.searchedForReport = true;
   			$scope.report = resp;
-  			//TODO format time
   		})
   		.catch(function(error){
   			console.error('error trying to get report: ', report);
