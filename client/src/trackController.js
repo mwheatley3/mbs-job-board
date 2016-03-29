@@ -2,7 +2,7 @@
 
 angular.module('myApp')
   .controller('TrackController', ['$scope','$http','$window','Services', function($scope,$http,$window,Services) {
-  	$scope.trackingHTML = '<h1>hello</h1>';
+  	$scope.trackingHTML = '';
   	$scope.getTracking = function(){
   		Services.getTracking()
   		.then(function(data){

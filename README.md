@@ -1,4 +1,6 @@
+This is a sample job board that was completed as part of a coding challenge
 
+The tech stack is Mongo, Express, Angular, and Node (MEAN)
 
 ## Getting Started
 
@@ -9,6 +11,5 @@ $ bower install
 $ npm start
 ```
 
-Now visit [localhost:4000](http://localhost:4000/)
 
 

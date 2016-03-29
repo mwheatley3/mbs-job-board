@@ -13,7 +13,7 @@ module.exports = function(app, express){
 	app.use( bodyParser.json() );
 	app.use( useragent.express() );
 
-	app.use('/api/indeed', searchRouter); // use user router for all user request
+	app.use('/api/indeed', searchRouter);
 	app.use('/api/admin', adminRouter);
 	app.use('/api/report', reportRouter);
 

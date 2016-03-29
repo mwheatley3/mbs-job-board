@@ -2,7 +2,7 @@
   "name": "MyApp",
   "version": "1.0.0",
   "main": "server/index.js",
-  "description": "A rapid project starter for Node, Express and Angular.",
+  "description": "A sweet job board.",
   "engines": {
     "node": ">=0.10.0"
   },
@@ -28,7 +28,6 @@
   "license": "MIT",
   "scripts": {
     "start": "./node_modules/.bin/nodemon server/index.js --ignore client/ --ignore node_modules/",
-    "test": "./test/run.sh",
     "postinstall": "bower install"
   }
 }
